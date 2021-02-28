@@ -1,3 +1,5 @@
+package Java.Foods;
+
 public class Money {
     private int dollars;
     private int cents;
@@ -11,6 +13,12 @@ public class Money {
         int totalCents = this.cents + money.cents;
         int dollars = this.dollars + money.dollars + (totalCents/100);
         return new Money(dollars, totalCents % 100);
+    }
+
+    public Money multiply(float percent){
+        int cents = Math.round(this.cents * percent);
+        int dollars = Math.round(this.dollars * percent) + (cents/100);
+        return new Money(cents, dollars);
     }
 
     @Override
